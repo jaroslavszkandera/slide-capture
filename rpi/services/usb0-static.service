@@ -1,0 +1,12 @@
+# Place in /etc/systemd/system/
+[Unit]
+Description=Usb0 static
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+ExecStart=sudo /usr/bin/nmcli connection up usb_static
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

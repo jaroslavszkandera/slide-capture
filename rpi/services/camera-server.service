@@ -1,0 +1,13 @@
+# Place in /etc/systemd/system/
+[Unit]
+Description=Camera Server
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pi/camera_server.py
+WorkingDirectory=/home/pi/
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
